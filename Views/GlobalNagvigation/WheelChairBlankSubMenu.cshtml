@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_plain_Layout.cshtml";
+}
+
+    <div class="centralContainerScroll">
+        <h1>Wheelchair Bank</h1>
+        <a href="" onclick="goToWheelChairSearch()" id="gotoClientSearchPage" target="_self" class="bigButton">Wheelchair Management</a>
+        <a href="" onclick="goToPartsInformationPageSearch()" id="gotowheelChairInformationPage" target="_self" class="bigButton">Wheelchair Parts Management</a>
+        <a href="" onclick="goToWheelchairSpecificationPage()" id="gotosupplierInformation" target="_self" class="bigButton">Wheelchair Models Review</a>
+        <a href="" onclick="goToSupplierSearch()"  id="gotosupplierInformation" target="_self" class="bigButton">Supplier Infomration</a>
+        <a href=""  onclick="goToMaintenanceLogsSearch()" id="gotoPartsInformationsPage" target="_self" class="bigButton">Maintenance Log Book</a>
+        <a href=""  id="gotoPartsInformationsPage" target="_self" class="bigButton">Wheelchair Accident Report</a>
+        <a href=@Url.Action("Index", "GlobalNagvigation") id="gotoMaintenanceLogsPage" target="_self" class="bigButton">Back</a>
+    </div>
+
+<script>
+
+     function goToWheelchairSpecificationPage() {
+         var winPar = "width=1000,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../WheelchairSpecificationsPage/Search", "", winPar);
+    }
+
+    function gotoClientSearchPage() {
+        var winPar = "width=400,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+       window.open("@Url.Action("", "ClientSearch")", "Quick Search", winPar);
+    }
+
+    function goToWheelChairSearch() {
+         var winPar = "width=1000,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../wheelChairInformationPage/Search", "", winPar);
+    }
+
+     function goToPartsInformationPageSearch() {
+         var winPar = "width=1000,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../PartsInformationsPage/Search", "", winPar);
+    }
+
+    function goToSupplierSearch() {
+         var winPar = "width=1200,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../supplierInformation/Search", "", winPar);
+    }
+
+     function goToMaintenanceLogsSearch() {
+         var winPar = "width=1000,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../MaintenanceLogsPage/Search", "", winPar);
+    }
+
+   
+
+</script>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+

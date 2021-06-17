@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WheelChair</title>
+
+
+    <link type="text/css" rel="stylesheet" href="~/dist/css/adminlte.css">
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+    <!-- third party JS -->
+    <script src="@Url.Content("~/lib/react/umd/react.development.js")"></script>
+    <script src="@Url.Content("~/lib/react-dom/umd/react-dom.development.min.js")"></script>
+    <script src="@Url.Content("~/lib/react-bootstrap/react-bootstrap.min.js")"></script>
+</head>
+<body class="login-page" style="min-height: 512.391px;">
+
+        @RenderBody()
+
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - WheelChair - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

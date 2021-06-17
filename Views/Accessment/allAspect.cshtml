@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Patient accessment";
+}
+<div id="displayContent"></div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ;
+    var Tabs = ReactBootstrap.Tabs ;
+    var Tab = ReactBootstrap.Tab;
+    var Button = ReactBootstrap.Button ;
+    var Spinner = ReactBootstrap.Spinner; 
+    var qAction = '@ViewData["pageAction"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+    var qWorkingForm = '@ViewData["workingForm"]';
+    var Suspense = React.Suspense;
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/assessment/assessment_get.jsx")"></script>

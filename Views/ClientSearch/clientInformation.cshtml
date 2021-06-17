@@ -1,0 +1,18 @@
+﻿
+<div class="container">
+        <div class="col-*-12 p-3" id="clienInformationForm"></div>
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+    var Alert = ReactBootstrap.Alert;
+    var Toast =  ReactBootstrap.Toast;
+    var Tabs = ReactBootstrap.Tabs;
+    var Tab = ReactBootstrap.Tab;
+    var seatNo = '@ViewData["seatNo"]';  
+    var pageAction = '@ViewData["pageAction"]';
+    var Suspense = React.Suspense;
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/clientInformation/Client_Information_cu.jsx")"></script>

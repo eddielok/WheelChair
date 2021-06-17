@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Loan";
+    Layout = "~/Views/Shared/_plain_Layout.cshtml";
+} 
+    <div id="loanPrinting"></div> 
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript"> 
+    var qLoanNumber = '@ViewData["loanNumber"]';
+    var qLanguage = '@ViewData["language"]';
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/printingComponent/LoanRecord/print_loan_letter.jsx")"></script>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Client Attendance";
+}
+<div  id="contentForm"></div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ; 
+    var qId = '@ViewData["id"]';
+    var qAction = '@ViewData["pageAction"]';
+    var qWorkingForm = '@ViewData["workingForm"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/ClientAttendance/clientAttendance_cu.jsx")"></script>

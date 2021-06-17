@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_two_Layout.cshtml";
+}
+@*<div class="centralContainer">
+        <h1>Wheelchair menu</h1>
+        <a href=@Url.Action("", "ClientSearch") id="gotoClientSearchPage" target="_blank" class="bigButton">Client search</a>
+        <a href=@Url.Action("Search", "wheelChairInformationPage") id="gotowheelChairInformationPage" target="_blank" class="bigButton">Wheelchair search</a>
+        <a href=@Url.Action("Search", "supplierInformation")`") id="gotoPartsInformationsPage" target="_blank" class="bigButton">Parts search</a>
+        <a href=@Url.Action("Search", "MaintenanceLogsPage") id="gotoMaintenanceLogsPage" target="_blank" class="bigButton">Maintenance Logs  search</a>
+        <a href=@Url.Action("Search", "LoanInformationPage") id="gotoLoanPage" target="_blank" class="bigButton">Loan search</a>
+    </div>*@
+
+
+
+    <h1 style="align-content:center">Wheelchair menu</h1>
+    <a href=@Url.Action("ClientInfomationSubMenu", "GlobalNagvigation") id="gotoClientSearchPage" target="_self" class="bigButton">Client Information</a>
+    <a href=@Url.Action("WheelChairBlankSubMenu", "GlobalNagvigation") id="gotowheelChairInformationPage" target="_self" class="bigButton">Wheelchair Bank</a>
+    <a href=@Url.Action("ExpenditureSubMenu", "GlobalNagvigation") id="gotosupplierInformation" target="_self" class="bigButton">Expenditure</a>
+    <a href=@Url.Action("StatisticsSubMenu", "GlobalNagvigation") id="gotoPartsInformationsPage" target="_self" class="bigButton">Statistics</a>
+    <a href=@Url.Action("Index", "Login") id="gotoMaintenanceLogsPage" target="_self" class="bigButton">Exit Database</a>
+
+
+<script>
+
+
+
+</script>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+

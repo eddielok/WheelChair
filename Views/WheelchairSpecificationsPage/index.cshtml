@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Wheelchair Model and Details";
+}
+
+<div class="container">
+    <div class="col-xl-12 p-1" id="contentForm"></div>
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ;
+    var Toast = ReactBootstrap.Toast;
+    var qId = '@ViewData["id"]';
+    var qAction = '@ViewData["pageAction"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+    var qWorkingForm = '@ViewData["workingForm"]';
+</script>
+
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/wheelChairSpecification/wheelchair_specification_cu.jsx")"></script>
+
+<script type="text/javascript" src="~/lib/thumb_slider/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/lib/thumb_slider/thumb_slider.js"></script>
+ 
+<script type="text/javascript">
+    /* define $ as jQuery just in case */
+    (function ($) {
+        /* doc ready */
+        $(function () {
+            /* init the plugin */
+            $('#my_thumb_slider').thumb_slider();
+        });
+    })(jQuery);
+
+</script>

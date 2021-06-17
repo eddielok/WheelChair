@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_plain_Layout.cshtml";
+}
+
+<div class="centralContainer">
+    <h1>Expenditure menu</h1>
+    <a href="" onclick="goToclientInformationCreate()" id="gotoClientSearchPage" target="_self" class="bigButton">Purchase Transcation Record</a>
+    <a href="" id="gotowheelChairInformationPage" target="_blank" class="bigButton">Monthly Report</a>
+    <a href="" id="gotosupplierInformation" target="_blank" class="bigButton">Client Purchasing Registry</a>
+    <a href=@Url.Action("Index", "GlobalNagvigation") id="gotoMaintenanceLogsPage" target="_self" class="bigButton">Back</a>
+</div>
+
+<script>
+
+    function gotoClientSearchPage() {
+        var winPar = "width=400,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+       window.open("@Url.Action("", "ClientSearch")", "Quick Search", winPar);
+    }
+
+    function goToclientInformationCreate() {
+         var winPar = "width=1000,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no";
+        window.open("../ClientSearch/clientInformation?pageAction=create", "", winPar);
+    }
+
+</script>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+

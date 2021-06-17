@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "aa7a904b-93ae-4211-898a-65dcd4e2f548",
+		"name": "loan validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "control",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7b6b238-5f26-4fc3-9614-0a0fa9d9fa51",
+						"exec": [
+							"pm.test(\"[tech] pass all things healthy, should accept this request\",function (){\r",
+							"       pm.response.to.have.status(202); \r",
+							"}); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"WC001\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5339,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"auto 0 - update on {{$timestamp}}\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false,\r\n            \"ArticleAction\":2\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"auto 1 - insert\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false,\r\n            \"ArticleAction\":1\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"auto 2 - insert\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false,\r\n            \"ArticleAction\":1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test LA Availability",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c0eff2b-fbe4-4371-af73-90684a354171",
+						"exec": [
+							"pm.test(\"[tech] should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] not empty in Loan base \",function (){ \r",
+							"    pm.expect(pm.response.json()[\"Loan base\"]).to.not.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[tech] empty in update part\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"update part\"]).to.be.empty;  \r",
+							"}) \r",
+							"pm.test(\"[business logic] can detect if a loan article has no stock\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"Loan base\"]); \r",
+							"    pm.expect(string1).to.have.string( \"has no stock or not found\"); \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"BLSSSML\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test WC Validity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82a27984-3709-4844-b56e-cb30f73e83d9",
+						"exec": [
+							"pm.test(\"[tech] should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] empty in update part\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"update part\"]).to.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[business logic] can identify unknown wheelchair\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"Loan base\"]); \r",
+							"    pm.expect(string1).to.have.string( \"No wheelchair found\"); \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"WC01\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test Ori.L validity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "553aebb5-2ac0-4019-aa72-31e91226701e",
+						"exec": [
+							"pm.test(\"[tech]should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] empty in Loan base \",function (){\r",
+							"    let reply = pm.response.json(); \r",
+							"    pm.expect(reply[\"Loan base\"]).to.be.empty; \r",
+							"})\r",
+							"pm.test(\"[tech] errors in update part is 2 since the mismatch of ori. loan and an item\",function (){\r",
+							"    let reply = pm.response.json();\r",
+							"    let errLength = reply[\"update part\"].length; \r",
+							"    pm.expect(errLength).to.eql(2); \r",
+							"})\r",
+							"pm.test(\"[business logic] can identify not exist loan\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"update part\"]); \r",
+							"    pm.expect(string1).to.have.string( \"Loan not found\"); \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"na\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test return date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7315c403-55cb-4206-91bd-6914533abf05",
+						"exec": [
+							"pm.test(\"[tech] should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"}); \r",
+							"pm.test(\"[tech] empty in Loan base\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"Loan base\"]).to.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[business logic] can alert addition of loan item(s) when returning loan\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"update part\"]); \r",
+							"    pm.expect(string1).to.have.string( \"try to add new item(s)/ change wheelchair to a returning loan\"); \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": \"2020-07-29T00:00:00\",\r\n        \"WheelchairNo\": \"\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test LA Validity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7aaaa1aa-cbb4-4edc-b293-a0b9f6aa7b0c",
+						"exec": [
+							"pm.test(\"[tech]should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] non empty in Loan base\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"Loan base\"]).to.not.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[business logic] can identify not exist loan item\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"Loan base\"]); \r",
+							"    pm.expect(string1).to.have.string( \"has no stock or not found\"); \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xx---x\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Test LA Validity"
+			},
+			"response": []
+		},
+		{
+			"name": "Test WC Availability",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e724b99-cf9d-41c8-9325-cedce62b2234",
+						"exec": [
+							"pm.test(\"[tech] should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] empty in update part\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"update part\"]).to.be.empty;  \r",
+							"}) \r",
+							"pm.test(\"[tech] non empty in Loan base \",function (){ \r",
+							"    pm.expect(pm.response.json()[\"Loan base\"]).to.not.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[business logic] can detect if a wheelchair is not available\",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"Loan base\"]); \r",
+							"    pm.expect(string1).to.have.string( \"Wheelchair not available\"); \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"a\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"WC256\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"89642-6\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		},
+		{
+			"name": "Test empty patient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b602a310-7ac0-42ef-888c-1e8f2bac3ce1",
+						"exec": [
+							"pm.test(\"[tech] should be uppressessable entity\",function (){\r",
+							"       pm.response.to.have.status(422); \r",
+							"});\r",
+							"pm.test(\"[tech] not empty in Loan base \",function (){ \r",
+							"    pm.expect(pm.response.json()[\"Loan base\"]).to.not.be.empty;  \r",
+							"})\r",
+							"pm.test(\"[tech] empty in update part\",function (){ \r",
+							"    pm.expect(pm.response.json()[\"update part\"]).to.be.empty;  \r",
+							"}) \r",
+							"pm.test(\"[business logic] can detect no patient name input \",function (){\r",
+							"    let reply = pm.response.json();   \r",
+							"    let string1=  JSON.stringify(reply[\"Loan base\"]); \r",
+							"    pm.expect(string1).to.have.string( \"Patient name should not be empty\"); \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Loan\": {\r\n        \"LoanFormNo\": \"CP0027\",\r\n        \"SeatNo\": \"SEAT2010573\",\r\n        \"PatientName\": \"\",\r\n        \"BorrowerName\": \"sa\",\r\n        \"Idno\": \"Y963526(6)\",\r\n        \"TelHome\": null,\r\n        \"TelMobile\": null,\r\n        \"TelOffice\": null,\r\n        \"Address\": \"\",\r\n        \"LoanDate\": \"2020-07-24T00:00:00\",\r\n        \"ReturnDate\": null,\r\n        \"WheelchairNo\": \"\",\r\n        \"Remarks\": \"\",\r\n        \"Witness\": \"\",\r\n        \"Rank\": \"\"\r\n    },\r\n    \"LoanedArticles\": [\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate2\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 5314,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        },\r\n        {\r\n            \"RefId\": 0,\r\n            \"LoanFormNo\": \"CP0027\",\r\n            \"PartNo\": \"9907xxx\",\r\n            \"Remarks\": \"validate1\",\r\n            \"Broken\": false,\r\n            \"DateBroken\": null,\r\n            \"Paid\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:56650/api/LoanSubmitRestful?isValidate=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56650",
+					"path": [
+						"api",
+						"LoanSubmitRestful"
+					],
+					"query": [
+						{
+							"key": "isValidate",
+							"value": "true"
+						}
+					]
+				},
+				"description": " LOAN GET TEMPLATE "
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "WheelChair Specification";
+}
+<div id="displayContent"></div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var queryPatientID = '';
+    var Alert = ReactBootstrap.Alert ;
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/WheelchairSpecification/wheelChair_specification_get_table.jsx")"></script>

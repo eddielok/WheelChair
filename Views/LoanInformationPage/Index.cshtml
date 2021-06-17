@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Loan record";
+}
+
+<div class="container"> 
+        <div class="col-xl-12 p-3" id="contentForm"></div> 
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ;
+    var Toast =  ReactBootstrap.Toast; 
+    var Button = ReactBootstrap.Button;
+    var Spinner = ReactBootstrap.Spinner; 
+    var qId = '@ViewData["id"]';
+    var qAction = '@ViewData["pageAction"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+    var qWorkingForm = '@ViewData["workingForm"]';
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/LoanRecord/loan_record_cu.jsx")"></script>
+

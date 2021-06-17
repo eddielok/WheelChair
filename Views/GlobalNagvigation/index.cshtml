@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_plain_Layout.cshtml";
+}
+@*<div class="centralContainer">
+        <h1>Wheelchair menu</h1>
+        <a href=@Url.Action("", "ClientSearch") id="gotoClientSearchPage" target="_blank" class="bigButton">Client search</a>
+        <a href=@Url.Action("Search", "wheelChairInformationPage") id="gotowheelChairInformationPage" target="_blank" class="bigButton">Wheelchair search</a>
+        <a href=@Url.Action("Search", "supplierInformation") id="gotosupplierInformation" target="_blank" class="bigButton">Supplier search</a>
+        <a href=@Url.Action("Search", "PartsInformationsPage") id="gotoPartsInformationsPage" target="_blank" class="bigButton">Parts search</a>
+        <a href=@Url.Action("Search", "MaintenanceLogsPage") id="gotoMaintenanceLogsPage" target="_blank" class="bigButton">Maintenance Logs  search</a>
+        <a href=@Url.Action("Search", "LoanInformationPage") id="gotoLoanPage" target="_blank" class="bigButton">Loan search</a>
+    </div>*@
+
+
+    <div class="centralContainer" >
+        <h2 style="align-content:center">Wheelchair menu</h2>
+        <a href=@Url.Action("ClientInfomationSubMenu", "GlobalNagvigation") id="gotoClientSearchPage" target="_self" class="bigButton">Client Information</a>
+        <a href=@Url.Action("WheelChairBlankSubMenu", "GlobalNagvigation") id="gotowheelChairInformationPage" target="_self" class="bigButton">Wheelchair Bank</a>
+        <a href=@Url.Action("ExpenditureSubMenu", "GlobalNagvigation") id="gotosupplierInformation" target="_self" class="bigButton">Expenditure</a>
+        <a href=@Url.Action("StatisticsSubMenu", "GlobalNagvigation") id="gotoPartsInformationsPage" target="_self" class="bigButton">Statistics</a>
+        <a href=@Url.Action("Index", "Login") id="gotoMaintenanceLogsPage" target="_self" class="bigButton">Exit Database</a>
+    </div>
+
+
+<script>
+
+    init();
+    function init() {
+        window.open("@Url.Action("", "ClientSearch")", "Quick Search", "width=400,height=600,toolbar=no, menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no");
+    }
+
+</script>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+

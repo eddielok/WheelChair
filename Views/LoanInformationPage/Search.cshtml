@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "WheelChair Information";
+}
+<div id="displayContent"></div>
+
+<script>document.head.innerHTML += '<link type="text/css" rel="stylesheet" href="/css/React.css">';</script>
+
+<script type="text/javascript"> 
+    var qLoanNumber = '@ViewData["loanNumber"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+    var Alert = ReactBootstrap.Alert;
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/LoanRecord/loan_record_get_table.jsx")"></script>

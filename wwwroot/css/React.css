@@ -1,0 +1,650 @@
+:root {
+    --global-green-1: #4CAF50;
+    --global-grey-1: #796d5d; /*deep grey */
+    --global-grey-2: lightgray;
+    --global-grey-3: #f1f1f1; /*light light light grey*/
+    --global-grey-4: #f2f2f2; /*light grey*/
+}
+
+.margin2px {
+    margin: 2px !important;
+}
+
+.archiveBtn {
+    color: black;
+}
+
+p.commentAuthorMale {
+    color: blue;
+}
+
+p.commentAuthorFemale {
+    color: red;
+}
+
+.table, td, th {
+    border: none !Important;
+}
+
+.table-broder, td, th {
+    border: none !Important;
+}
+
+textarea {
+    width: 600px;
+    height: 100px;
+    white-space: normal;
+}
+
+.borderedBox {
+    border-style: solid;
+    border-width: 1px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+input.longBox {
+    width: 200px;
+    border: none;
+    border: 1px solid var(--global-grey-1);
+}
+
+input.xtralongBox {
+    width: 600px;
+    border: none;
+    border: 1px solid var(--global-grey-1);
+}
+
+input.underLined_xtralong {
+    width: 600px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input.underLined_long {
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input.underLined_medium {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input.underLined_short {
+    width: 65px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input.box_short {
+    width: 50px;
+}
+
+input.box_medium {
+    width: 100px;
+}
+
+.BackHeaderButtonStyle {
+    float: right;
+}
+
+.centralContainer {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /*border: 3px solid var(--global-grey-1);*/
+    width: 60%;
+    padding: 10px;
+}
+
+.ContainerToastCloseButton {
+    text-align: center;
+    width: 100%
+}
+
+.ContainerToastCloseHalfButton {
+    text-align: center;
+    width: 50%
+}
+
+.centralContainerToast {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    margin-right: -50%;
+    width: 100%;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.centralContainerScroll {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /*border: 3px solid var(--global-grey-1);*/
+    width: 60%;
+    padding: 10px;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+.bigButton {
+    background-color: var(--global-grey-1);
+    border: none;
+    color: white;
+    padding: 15px 15px 32px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    width: 90%;
+    transition-duration: 0.4s;
+}
+
+    .bigButton:hover {
+        background-color: var(--global-grey-2);
+        color: black;
+        text-decoration: none;
+    }
+
+/** ************************************************************/
+/**                     CSS ghost area                        **/
+/** ************************************************************/
+.ghostHeader {
+    background-color: var(--global-grey-3);
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ghostButton {
+    background-color: var(--global-grey-4);
+    color: black;
+    margin: 10px;
+    border: 0px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    transition-duration: 0.4s;
+}
+
+    .ghostButton:hover {
+        background-color: var(--global-grey-2);
+        color: white;
+        border-radius: 5px 5px 5px 5px;
+    }
+/** ************************************************************/
+/**                     CSS check box                         **/
+/** ************************************************************/
+/*.largeChkBoxDiv{
+     background-color:yellow; 
+ }
+     .largeChkBoxDiv label {
+         background-color: red;
+    }
+    
+    */
+/** ************************************************************/
+/**                     CSS for table                         **/
+/** ************************************************************/
+#table-wrapper {
+    position: relative;
+}
+
+#table-scroll {
+    width: inherit;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+#table-wrapper table {
+    width: 100%;
+}
+
+table#reactTable {
+    width: 100%;
+    overflow: auto;
+}
+
+    table#reactTable thead {
+        background-color: var(--global-grey-1);
+        color: white;
+        border: 1px solid var(--global-grey-2);
+        text-align: center;
+    }
+
+    table#reactTable td, table#reactTable th {
+        padding: 20px;
+        min-width: 100px;
+        color: black;
+        text-align: center;
+    }
+
+    table#reactTable th {
+        color: white;
+    }
+
+    table#reactTable tbody tr:nth-child(odd) {
+        background-color: var(--global-grey-2);
+        color: #fff;
+    }
+
+.reactTbBtn {
+    width: 70px;
+    margin: 5px;
+}
+
+.printItemTable {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cell_html_element {
+    display: inherit !important;
+}
+
+#noPadding {
+    padding: 0px;
+}
+/** ************************************************************/
+/**                 Multi-leved select list                   **/
+/** ************************************************************/
+.optionGroup {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.optionChild {
+    padding-left: 15px;
+}
+
+div.flexDiv {
+    display: flex;
+    align-items: center;
+}
+
+.smBtn {
+    width: 50px;
+    height: 25px;
+    border: none;
+}
+/** ************************************************************/
+/**                   CSS for T - seection layout             **/
+/** ************************************************************/
+.TSectionContainer {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+.upperLeft {
+    width: 48%;
+    float: left;
+    border: 2px dashed var(--global-grey-2);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.upperRight {
+    width: 48%;
+    float: right;
+    border: 2px dashed var(--global-grey-2);
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: right;
+}
+
+@media screen and (max-width: 760px) {
+    .upperRight {
+        float: none;
+        width: 100%;
+    }
+
+    .upperLeft {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+.bottom {
+    clear: both;
+    width: 100%;
+    margin-top: 50px;
+    border: none;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 500px) {
+    .TSectionContainer {
+        display: grid;
+    }
+}
+/** ************************************************************/
+/**                 CSS for card grid                         **/
+/** ************************************************************/
+.cardContainer {
+    width: inherit;
+    margin: 0 auto;
+    padding-top: 20px;
+    /* 
+    width: 90%;
+    max-width: 1000px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; 
+    */
+    display: grid;
+    grid-gap: 20px;
+}
+
+.aCardHeader {
+    background-color: var(--global-grey-1);
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center
+}
+
+.headerContainer, .filter {
+    margin: 0 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.aCard {
+    border: 2px solid var(--global-grey-3);
+    border-radius: 10px;
+    padding: 10px;
+    width: 310px;
+    overflow-wrap: break-word;
+}
+
+@media only screen and (max-width: 949px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .aCard {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1449px) and (min-width: 950px) {
+    .cardContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    .cardContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1221px) {
+    #supplier_grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1220px) and (min-width: 960px) {
+    #supplier_grid {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+}
+
+/** ************************************************************/
+/**             END CSS for card grid                         **/
+/** ************************************************************/
+.baseBtn {
+    padding: 0px 10px;
+    margin: 3px;
+}
+/** ************************************************************/
+/**        start CSS for React_table_in_ddl                   **/
+/** ************************************************************/
+
+.dropbtn {
+    background-color: var(--global-grey-1);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    margin: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--global-grey-3);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content tr:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown-content th {
+        background-color: gray;
+    }
+
+    .dropdown-content td, th {
+        min-width: 50px;
+        min-height: 10px;
+        padding: 20px;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--global-grey-2);
+    color: black;
+}
+
+/** ************************************************************/
+/**          end CSS for React_table_in_ddl                   **/
+/** ************************************************************/
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: var(--global-grey-4);
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: var(--global-green-1);
+        color: white;
+    }
+
+/** ************************************************************/
+/**                       grey out a page                     **/
+/** ************************************************************/
+
+#opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: black;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+}
+
+* html#opaque {
+    position: absolute;
+}
+/** ************************************************************/
+/**                           central                         **/
+.centralOuter {
+    text-align: center;
+}
+
+/** ************************************************************/
+/**                        for image                         **/
+img.squarImg {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+img.bigImg {
+    max-width: 400px;
+    max-height: 300px;
+}
+/** ************************************************************/
+/**                        hr pretty                          **/
+hr.style-grand:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+hr.style-grand {
+    overflow: visible;
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+/** ************************************************************/
+/**                        boostrap                           **/
+a#grey_gradientBtn.nav-item.nav-link {
+    background: linear-gradient(0deg, hsla(0, 0%, 20%, 0.2) 0%, hsla(0, 0%, 50%, 0.15) 35%, hsla(0, 0%, 60%, 0.01) 100%);
+    border: none;
+    margin: 1px;
+    color: black;
+}
+
+a#data_avai_item.nav-item.nav-link {
+    background: linear-gradient(0deg, hsla(118, 95%, 50%, 0.2) 0%, hsla(99, 95%, 50%, 0.15) 35%, hsla(80, 95%, 50%, 0.01) 100%);
+    border: none;
+    margin: 1px;
+    color: black;
+}
+
+a#no_data_avai_item.nav-item.nav-link {
+    background: linear-gradient(0deg, hsla(10, 95%, 50%, 0.2) 0%, hsla(14, 95%, 50%, 0.15) 35%, hsla(14, 95%, 50%, 0.01) 100%);
+    border: none;
+    margin: 1px;
+    color: black;
+}
+
+button.changingActiveBtn.btn.btn-primary {
+    background-color: hsla(63, 100%, 76%, 0.85);
+    border: none;
+    margin: 2px;
+    margin-bottom: 5px;
+    color: black;
+    height: 35px;
+}
+
+.thinBtn {
+    height: 35px;
+    margin: 2px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.whiteSpinner {
+    border: 4px solid hsla(341, 100%, 58%, 0.85);
+    color: white;
+}
+
+#noBorder {
+    border: none;
+}
+/******* my suggest input box *******/
+.roundedSubItem {
+    display: inline-block;
+    border-radius: 10px;
+    margin: 3px;
+    padding: 5px;
+    font-size: small;
+}
+
+#odd_row {
+    border: 2px solid rgb(201, 201, 212);
+}
+
+#even_row {
+    border: 2px solid white;
+}
+
+.marginedInputBox {
+    width: 90%;
+    margin: 10px;
+    padding: 3px;
+}
+
+.moreBtn:after {
+    height: 10px;
+    content: '\2807';
+    vertical-align: middle;
+    text-align: center;
+}
+
+.inlineItems {
+    display: flex;
+    align-items: center;
+}

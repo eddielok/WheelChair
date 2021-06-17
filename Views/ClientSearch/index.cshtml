@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = " Client Information";
+    Layout = "~/Views/Shared/_menu_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-*-12 p-3" id="clientSearchForm"></div>
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+    var Alert = ReactBootstrap.Alert;
+    var Tabs = ReactBootstrap.Tabs;
+    var Tab = ReactBootstrap.Tab;
+    var Toast = ReactBootstrap.Toast;
+    var Suspense = React.Suspense;
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/clientSearch/ClientSearch_Main.jsx")"></script>

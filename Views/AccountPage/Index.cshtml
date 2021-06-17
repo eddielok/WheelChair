@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Account Information ";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 p-3" id="contentForm"></div>
+    </div>
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ;
+    var Tabs = ReactBootstrap.Tabs ;
+    var Tab = ReactBootstrap.Tab ;
+    var qId = '@ViewData["id"]';
+    var qAction = '@ViewData["pageAction"]';
+    var qSeatNo = '@ViewData["seatNo"]';
+    var qWorkingForm = '@ViewData["workingForm"]';
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/AccountInformation/account_information_cu.jsx")"></script>
+
+

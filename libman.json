@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "react@16.13.1",
+      "destination": "wwwroot/lib/react/"
+    },
+    {
+      "library": "react-dom@16.13.1",
+      "destination": "wwwroot/lib/react-dom/"
+    },
+    {
+      "library": "react-bootstrap@1.0.1",
+      "destination": "wwwroot/lib/react-bootstrap/"
+    } 
+  ]
+}

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Work Orders";
+}
+<div id="contentForm"></div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+
+    var Alert = ReactBootstrap.Alert ;
+    var Tabs = ReactBootstrap.Tabs ;
+    var Toast =  ReactBootstrap.Toast;
+    var Tab = ReactBootstrap.Tab;  
+    var qId = '@ViewData["id"]'; 
+    var qSeatNo = '@ViewData["seatNo"]'; 
+    var qAction = '@ViewData["pageAction"]'; 
+    var qWorkingForm = '@ViewData["workingForm"]';
+</script>
+<!--   the form, itself -->
+<script type="module" src="@Url.Content("~/js/consumerComponent/WorkOrder/workOrder_cu.jsx")"></script>

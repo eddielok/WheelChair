@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "hotWheelChair Login";
+    Layout = "~/Views/Shared/_plain_Layout.cshtml";
+}
+
+
+<div id="loginForm"></div>
+
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+
+
+<script type="text/javascript">
+    var Alert = ReactBootstrap.Alert;
+    var qRedirect = '@ViewData["redirect"]';
+</script>
+<!--   the form, itself --> 
+<script type="module" src="@Url.Content("~/js/formComponent/login/login_Input_Form.jsx")"></script>

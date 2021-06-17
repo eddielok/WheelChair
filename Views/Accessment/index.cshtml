@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Accessment";
+}
+<div class="container"> 
+        <div class="col-*-12 p-3" id="contentForm"></div> 
+</div>
+
+<script>document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="/css/React.css">`;</script>
+
+<script type="text/javascript">
+     
+    var Alert = ReactBootstrap.Alert;
+    var Toast =  ReactBootstrap.Toast; 
+    var Button =  ReactBootstrap.Button; 
+    var Tabs = ReactBootstrap.Tabs ;
+    var Tab = ReactBootstrap.Tab ;
+    var qId = '@ViewData["id"]';
+    var qAction = '@ViewData["pageAction"]'; 
+    var qSeatNo = '@ViewData["seatNo"]';
+    var Suspense = React.Suspense;
+
+    var qWorkingForm = '@ViewData["workingForm"]'; 
+</script>
+<!--   the form, itself -->
+ <script type="module" src="@Url.Content("~/js/consumerComponent/assessment/assessment_cu.jsx")"></script>  
